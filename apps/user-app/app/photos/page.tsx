@@ -19,7 +19,7 @@ export default async function PhotosPage({
             <img
               src={getImageUrl(img.imagePath)}
               className="h-48 w-full object-cover"
-              alt={img.description ?? "image"}
+              alt={img.prompt ?? "image"}
             />
           </div>
         ))}

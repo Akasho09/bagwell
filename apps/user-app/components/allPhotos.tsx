@@ -13,11 +13,11 @@ export async function Photos() {
             <div key={img.id}>
               <img
                 src={getImageUrl(img.imagePath)}
-                alt={img.description ?? "image"}
+                alt={img.prompt ?? "image"}
                 width={300}
               />
               <p className="text-xs break-all">
-                {img.description}
+                {img.prompt}
               </p>
             </div>
           );

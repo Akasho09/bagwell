@@ -7,7 +7,7 @@ import { createImage } from "../lib/saveInDb";
 export default function ImageUpload() {
   const [file, setFile] = useState<File | null>(null);
   const [category, setCategory] = useState("nature");
-  const [description, setDescription] = useState("");
+  const [prompt, setprompt] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function handleUpload() {
@@ -20,13 +20,13 @@ export default function ImageUpload() {
 
       await createImage({
         category,
-        description,
+        prompt,
         imagePath,
       });
 
       alert("Image uploaded successfully!");
       setFile(null);
-      setDescription("");
+      setprompt("");
     } catch (err) {
       console.error(err);
       alert("Upload failed");
@@ -55,14 +55,14 @@ export default function ImageUpload() {
         <option value="people">People</option>
       </select>
 
-      {/* Description */}
+      {/* prompt */}
       <label className="block text-sm font-medium text-gray-600 mb-1">
-        Description
+        prompt
       </label>
       <textarea
-        placeholder="Image description"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
+        placeholder="Image prompt"
+        value={prompt}
+        onChange={(e) => setprompt(e.target.value)}
         rows={3}
         className="w-full mb-4 rounded-md border px-3 py-2 text-sm resize-none focus:outline-none focus:ring-2 focus:ring-green-500"
       />

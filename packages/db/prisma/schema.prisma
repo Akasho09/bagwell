@@ -14,6 +14,7 @@ model User {
   id    String @id @default(uuid())
   email String @unique
   name  String?
+  ip    String
 
   @@schema("public")
 }
@@ -22,7 +23,9 @@ model Image {
   id          String   @id @default(uuid())
   imagePath    String
   category    String   // or enum
+  prompt String?
   description String?
+  like Int @default(0)
   createdAt   DateTime @default(now())
 
   @@index([category])
@@ -36,6 +39,7 @@ enum Category {
   SPORTS
   @@schema("public")
 }
+
 
 // TRACK IP ADDRESS OF DEVICE AND FREE 3 COPY PROMPTS 
 // 

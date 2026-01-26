@@ -1,0 +1,566 @@
+[00:00:01.188] Server  LOG     ✓ Ready in 818ms
+[00:00:08.440] Server  LOG     prisma:query "BEGIN"
+[00:00:08.596] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:00:09.107] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:00:09.453] Server  LOG     prisma:query "COMMIT"
+[00:00:10.262] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:53.223] Server  LOG     prisma:query "SELECT 1"
+[00:00:53.391] Server  LOG     prisma:query "BEGIN"
+[00:00:53.543] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:00:53.874] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:00:54.034] Server  LOG     prisma:query "COMMIT"
+[00:00:54.880] Server  LOG     prisma:query "BEGIN"
+[00:00:55.029] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:00:55.312] Server  LOG     prisma:query "BEGIN"
+[00:00:55.331] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:00:55.459] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:00:55.483] Server  LOG     prisma:query "COMMIT"
+[00:00:55.791] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:00:55.830] Server  LOG     prisma:query "BEGIN"
+[00:00:55.986] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:00:55.986] Server  LOG     prisma:query "COMMIT"
+[00:00:56.463] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:00:56.617] Server  LOG     prisma:query "COMMIT"
+[00:00:56.787] Server  LOG     prisma:query "BEGIN"
+[00:00:56.949] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:00:57.283] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:00:57.433] Server  LOG     prisma:query "COMMIT"
+[00:04:38.516] Server  LOG     prisma:query "SELECT 1"
+[00:04:38.678] Server  LOG     prisma:query "BEGIN"
+[00:04:38.848] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:04:39.002] Server  LOG     prisma:query "SELECT 1"
+[00:04:39.141] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE \"public\".\"Image\".\"category\" = $1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $2"
+[00:04:39.155] Server  LOG     prisma:query "BEGIN"
+[00:04:39.304] Server  LOG     prisma:query "COMMIT"
+[00:04:39.304] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:04:39.636] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE \"public\".\"Image\".\"category\" = $1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $2"
+[00:04:39.784] Server  LOG     prisma:query "COMMIT"
+[00:08:05.536] Browser ERROR   ./apps/user-app/lib/getImages.ts:18:63
+Parsing ecmascript source code failed
+  16 | }
+  17 |
+> 18 | export async function getImagesByCategory(category?: string) {
+     |                                                               ^
+  19 |
+  20 |   
+
+Expected '}', got '<eof>'
+
+Import trace:
+  Server Component:
+    ./apps/user-app/lib/getImages.ts
+    ./apps/user-app/components/allPhotos.tsx
+    ./apps/user-app/app/page.tsx
+[00:08:05.640] Browser ERROR   ./apps/user-app/lib/getImages.ts:18:63
+Parsing ecmascript source code failed
+  16 | }
+  17 |
+> 18 | export async function getImagesByCategory(category?: string) {
+     |                                                               ^
+  19 |
+  20 |
+  21 |   
+
+Expected '}', got '<eof>'
+
+Import trace:
+  Server Component:
+    ./apps/user-app/lib/getImages.ts
+    ./apps/user-app/components/allPhotos.tsx
+    ./apps/user-app/app/page.tsx
+[00:08:05.787] Browser ERROR   ./apps/user-app/lib/getImages.ts:18:63
+Parsing ecmascript source code failed
+  16 | }
+  17 |
+> 18 | export async function getImagesByCategory(category?: string) {
+     |                                                               ^
+  19 |
+  20 |
+  21 |
+
+Expected '}', got '<eof>'
+
+Import trace:
+  Server Component:
+    ./apps/user-app/lib/getImages.ts
+    ./apps/user-app/components/allPhotos.tsx
+    ./apps/user-app/app/page.tsx
+[00:08:06.224] Browser ERROR   ./apps/user-app/lib/getImages.ts:18:23
+Ecmascript file had an error
+  16 | }
+  17 |
+> 18 | export async function getImagesByCategory(category?: string) {
+     |                       ^^^^^^^^^^^^^^^^^^^
+  19 |
+  20 |
+  21 |
+
+the name `getImagesByCategory` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./apps/user-app/lib/getImages.ts
+    ./apps/user-app/components/allPhotos.tsx
+    ./apps/user-app/app/page.tsx
+[00:08:10.795] Browser ERROR   ./apps/user-app/lib/getImages.ts:18:23
+Ecmascript file had an error
+  16 | }
+  17 |
+> 18 | export async function getImages(category?: string) {
+     |                       ^^^^^^^^^
+  19 |
+  20 |
+  21 |
+
+the name `getImages` is defined multiple times
+
+Import trace:
+  Server Component:
+    ./apps/user-app/lib/getImages.ts
+    ./apps/user-app/components/allPhotos.tsx
+    ./apps/user-app/app/page.tsx
+[00:08:13.927] Server  LOG     ✓ Compiled in 16ms
+[00:08:14.095] Server  LOG     prisma:query "BEGIN"
+[00:08:14.134] Server  LOG     prisma:query "BEGIN"
+[00:08:14.212] Server  LOG     ✓ Compiled in 20ms
+[00:08:14.262] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:08:14.301] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:08:14.301] Server  LOG     prisma:query "BEGIN"
+[00:08:14.303] Server  LOG     prisma:query "BEGIN"
+[00:08:14.425] Server  LOG     prisma:query "BEGIN"
+[00:08:14.457] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:08:14.476] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:08:14.581] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:08:14.604] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:08:14.630] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:08:14.766] Server  LOG     prisma:query "COMMIT"
+[00:08:14.823] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:08:14.823] Server  LOG     prisma:query "COMMIT"
+[00:08:14.860] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:08:14.916] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:08:14.971] Server  LOG     prisma:query "COMMIT"
+[00:08:15.051] Server  LOG     prisma:query "BEGIN"
+[00:08:15.053] Server  LOG     prisma:query "BEGIN"
+[00:08:15.059] Server  LOG     prisma:query "COMMIT"
+[00:08:15.095] Server  LOG     prisma:query "COMMIT"
+[00:08:15.157] Server  LOG     prisma:query "BEGIN"
+[00:08:15.233] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:08:15.233] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:08:15.261] Server  LOG     prisma:query "BEGIN"
+[00:08:15.302] Server  LOG     prisma:query "BEGIN"
+[00:08:15.361] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:08:15.461] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:08:15.507] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:08:15.601] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:08:15.601] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:08:15.720] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:08:15.767] Server  LOG     prisma:query "COMMIT"
+[00:08:15.770] Server  LOG     prisma:query "COMMIT"
+[00:08:15.815] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:08:15.864] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:08:15.886] Server  LOG     prisma:query "COMMIT"
+[00:08:15.990] Server  LOG     prisma:query "BEGIN"
+[00:08:15.992] Server  LOG     prisma:query "COMMIT"
+[00:08:16.018] Server  LOG     prisma:query "COMMIT"
+[00:08:16.147] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:08:16.483] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:08:16.744] Server  LOG     prisma:query "COMMIT"
+[00:08:18.067] Server  LOG     prisma:error "\nInvalid `__TURBOPACK__imported__module__$5b$project$5d2f$packages$2f$db$2f$index$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"prisma\"].image.findMany()` invocation in\n/Users/akashmalik/Desktop/hope/mainApp/apps/user-app/.next/dev/server/chunks/ssr/[root-of-the-server]__50347250._.js:227:148\n\n  224 var __TURBOPACK__imported__module__$5b$project$5d2f$packages$2f$db$2f$index$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i(\"[project]/packages/db/index.ts [app-rsc] (ecmascript)\");\n  225 ;\n  226 async function getImages() {\n→ 227     return __TURBOPACK__imported__module__$5b$project$5d2f$packages$2f$db$2f$index$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__[\"prisma\"].image.findMany(\nCan't reach database server at `aws-1-ap-northeast-2.pooler.supabase.com:6543`\n\nPlease make sure your database server is running at `aws-1-ap-northeast-2.pooler.supabase.com:6543`."
+[00:08:18.164] Server  ERROR   ⨯ PrismaClientKnownRequestError: 
+Invalid `{imported module ./packages/db/index.ts}["prisma"].image.findMany()` invocation in
+/Users/akashmalik/Desktop/hope/mainApp/apps/user-app/.next/dev/server/chunks/ssr/[root-of-the-server]__50347250._.js:227:148
+
+  224 var {imported module ./packages/db/index.ts} = __turbopack_context__.i("[project]/packages/db/index.ts [app-rsc] (ecmascript)");
+  225 ;
+  226 async function getImages() {
+→ 227     return {imported module ./packages/db/index.ts}["prisma"].image.findMany(
+Can't reach database server at `aws-1-ap-northeast-2.pooler.supabase.com:6543`
+
+Please make sure your database server is running at `aws-1-ap-northeast-2.pooler.supabase.com:6543`.
+[00:08:19.779] Server  LOG     prisma:query "BEGIN"
+[00:08:19.779] Server  LOG     prisma:query "BEGIN"
+[00:08:19.941] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:08:19.941] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:08:20.273] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:08:20.275] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:08:20.443] Server  LOG     prisma:query "COMMIT"
+[00:08:20.447] Server  LOG     prisma:query "COMMIT"
+[00:16:57.230] Browser ERROR   ./apps/user-app/lib/getImages.ts:9:3
+Parsing ecmascript source code failed
+   7 |     }
+   8 |   });
+>  9 |   /
+     |   ^
+  10 | }
+  11 |
+  12 | export async function getImagesByCategory(category?: string) {
+
+Unterminated regexp literal
+
+Import trace:
+  Server Component:
+    ./apps/user-app/lib/getImages.ts
+    ./apps/user-app/components/allPhotos.tsx
+    ./apps/user-app/app/page.tsx
+[00:16:58.022] Server  LOG     ✓ Compiled in 8ms
+[00:16:58.276] Server  LOG     ✓ Compiled in 19ms
+[00:16:58.523] Server  LOG     ✓ Compiled in 15ms
+[00:16:58.555] Server  LOG     prisma:query "BEGIN"
+[00:16:58.642] Server  LOG     ✓ Compiled in 16ms
+[00:16:58.643] Server  LOG     prisma:query "BEGIN"
+[00:16:58.643] Server  LOG     prisma:query "BEGIN"
+[00:16:58.686] Server  LOG     prisma:query "BEGIN"
+[00:16:58.773] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:16:58.784] Server  LOG     ✓ Compiled in 21ms
+[00:16:58.822] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:16:58.822] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:16:58.863] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:16:59.128] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:16:59.133] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:16:59.133] Server  LOG     ✓ Compiled in 58ms
+[00:16:59.136] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:16:59.167] Server  LOG     prisma:query "BEGIN"
+[00:16:59.206] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:16:59.214] Server  LOG     prisma:query "BEGIN"
+[00:16:59.288] Server  LOG     prisma:query "COMMIT"
+[00:16:59.356] Server  LOG     prisma:query "COMMIT"
+[00:16:59.357] Server  LOG     prisma:query "COMMIT"
+[00:16:59.357] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:16:59.383] Server  LOG     prisma:query "COMMIT"
+[00:16:59.401] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:16:59.502] Server  LOG     prisma:query "BEGIN"
+[00:16:59.549] Server  LOG     prisma:query "BEGIN"
+[00:16:59.561] Server  LOG     prisma:query "BEGIN"
+[00:16:59.577] Server  LOG     prisma:query "BEGIN"
+[00:16:59.654] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:16:59.654] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:16:59.715] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:16:59.726] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:16:59.726] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:16:59.730] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:16:59.808] Server  LOG     prisma:query "COMMIT"
+[00:16:59.876] Server  LOG     prisma:query "COMMIT"
+[00:16:59.960] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:00.006] Server  LOG     prisma:query "BEGIN"
+[00:17:00.040] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:00.044] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:00.071] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:00.078] Server  LOG     prisma:query "BEGIN"
+[00:17:00.111] Server  LOG     prisma:query "COMMIT"
+[00:17:00.162] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:00.213] Server  LOG     ✓ Compiled in 11ms
+[00:17:00.275] Server  LOG     prisma:query "COMMIT"
+[00:17:00.276] Server  LOG     prisma:query "COMMIT"
+[00:17:00.276] Server  LOG     prisma:query "COMMIT"
+[00:17:00.276] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:00.337] Server  LOG     prisma:query "BEGIN"
+[00:17:00.476] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:00.525] Server  LOG     prisma:query "BEGIN"
+[00:17:00.550] Server  LOG     ✓ Compiled in 9ms
+[00:17:00.560] Server  LOG     prisma:query "BEGIN"
+[00:17:00.584] Server  LOG     prisma:query "BEGIN"
+[00:17:00.614] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:00.641] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:00.745] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:00.745] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:00.746] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:00.775] Server  LOG     prisma:query "COMMIT"
+[00:17:00.838] Server  LOG     prisma:query "COMMIT"
+[00:17:00.847] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:00.941] Server  LOG     ✓ Compiled in 8ms
+[00:17:00.999] Server  LOG     prisma:query "COMMIT"
+[00:17:01.000] Server  LOG     prisma:query "BEGIN"
+[00:17:01.048] Server  LOG     prisma:query "BEGIN"
+[00:17:01.086] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:01.098] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:01.124] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:01.194] Server  LOG     ✓ Compiled in 9ms
+[00:17:01.204] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:01.240] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:01.240] Server  LOG     prisma:query "BEGIN"
+[00:17:01.253] Server  LOG     prisma:query "COMMIT"
+[00:17:01.311] Server  LOG     prisma:query "COMMIT"
+[00:17:01.311] Server  LOG     ✓ Compiled in 0ms
+[00:17:01.392] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:01.482] Server  LOG     prisma:query "BEGIN"
+[00:17:01.533] Server  LOG     prisma:query "BEGIN"
+[00:17:01.574] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:01.575] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:01.668] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:01.719] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:01.731] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:01.809] Server  LOG     prisma:query "COMMIT"
+[00:17:01.809] Server  LOG     prisma:query "COMMIT"
+[00:17:01.809] Server  LOG     prisma:query "COMMIT"
+[00:17:01.903] Server  LOG     prisma:query "COMMIT"
+[00:17:02.045] Server  LOG     prisma:query "BEGIN"
+[00:17:02.045] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:02.070] Server  LOG     prisma:query "BEGIN"
+[00:17:02.096] Server  LOG     prisma:query "BEGIN"
+[00:17:02.098] Server  LOG     prisma:query "BEGIN"
+[00:17:02.107] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:02.204] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:02.218] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:02.229] Server  LOG     prisma:query "COMMIT"
+[00:17:02.274] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:02.274] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:02.274] Server  LOG     prisma:query "COMMIT"
+[00:17:02.422] Server  LOG     prisma:query "BEGIN"
+[00:17:02.493] Server  LOG     prisma:query "BEGIN"
+[00:17:02.503] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:02.539] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:02.561] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:02.561] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:02.578] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:02.655] Server  LOG     prisma:query "COMMIT"
+[00:17:02.663] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:02.701] Server  LOG     prisma:query "COMMIT"
+[00:17:02.725] Server  LOG     prisma:query "COMMIT"
+[00:17:02.725] Server  LOG     prisma:query "COMMIT"
+[00:17:02.854] Server  LOG     prisma:query "BEGIN"
+[00:17:02.879] Server  LOG     prisma:query "BEGIN"
+[00:17:02.911] Server  LOG     prisma:query "BEGIN"
+[00:17:02.920] Server  LOG     prisma:query "BEGIN"
+[00:17:02.967] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:03.013] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:03.022] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:03.030] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:03.077] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:03.097] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:03.134] Server  LOG     prisma:query "COMMIT"
+[00:17:03.212] Server  LOG     prisma:query "COMMIT"
+[00:17:03.443] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:03.443] Server  LOG     prisma:query "BEGIN"
+[00:17:03.444] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:03.482] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:03.485] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:03.599] Server  LOG     prisma:query "COMMIT"
+[00:17:03.653] Server  LOG     prisma:query "BEGIN"
+[00:17:03.654] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:03.654] Server  LOG     prisma:query "COMMIT"
+[00:17:03.658] Server  LOG     prisma:query "COMMIT"
+[00:17:03.658] Server  LOG     prisma:query "COMMIT"
+[00:17:03.826] Server  LOG     prisma:query "BEGIN"
+[00:17:03.842] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:04.014] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:04.022] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:04.214] Server  LOG     prisma:query "COMMIT"
+[00:17:04.262] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:04.354] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:04.456] Server  LOG     prisma:query "COMMIT"
+[00:17:04.533] Server  LOG     prisma:query "COMMIT"
+[00:17:10.846] Server  LOG     ✓ Compiled in 21ms
+[00:17:11.136] Server  LOG     prisma:query "BEGIN"
+[00:17:11.156] Server  LOG     prisma:query "BEGIN"
+[00:17:11.231] Browser ERROR   ./apps/user-app/lib/getImages.ts:10:3
+Parsing ecmascript source code failed
+   8 |   });
+   9 |   // count - 100
+> 10 |   /
+     |   ^
+  11 | }
+  12 |
+  13 | export async function getImagesByCategory(category?: string) {
+
+Unterminated regexp literal
+
+Import trace:
+  Server Component:
+    ./apps/user-app/lib/getImages.ts
+    ./apps/user-app/components/allPhotos.tsx
+    ./apps/user-app/app/page.tsx
+[00:17:11.242] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:11.294] Server  LOG     prisma:query "BEGIN"
+[00:17:11.303] Server  LOG     prisma:query "BEGIN"
+[00:17:11.319] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:11.456] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:11.460] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:11.558] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:11.665] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:11.717] Server  LOG     prisma:query "COMMIT"
+[00:17:11.756] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:11.783] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:11.835] Server  LOG     prisma:query "COMMIT"
+[00:17:11.905] Server  LOG     prisma:query "COMMIT"
+[00:17:11.944] Server  LOG     prisma:query "COMMIT"
+[00:17:12.180] Server  LOG     prisma:query "BEGIN"
+[00:17:12.185] Server  LOG     prisma:query "BEGIN"
+[00:17:12.342] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:12.355] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:12.716] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:12.717] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:12.896] Server  LOG     prisma:query "COMMIT"
+[00:17:12.905] Server  LOG     prisma:query "COMMIT"
+[00:17:14.342] Server  LOG     prisma:query "SELECT 1"
+[00:17:14.363] Server  LOG     prisma:query "SELECT 1"
+[00:17:14.498] Server  LOG     prisma:query "BEGIN"
+[00:17:14.513] Server  LOG     prisma:query "BEGIN"
+[00:17:14.675] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:14.691] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:15.086] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:15.097] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:15.257] Server  LOG     prisma:query "COMMIT"
+[00:17:15.257] Server  LOG     prisma:query "COMMIT"
+[00:17:16.234] Browser ERROR   ./apps/user-app/lib/getImages.ts:11:5
+Parsing ecmascript source code failed
+   9 |   // count - 100
+  10 |   // 5
+> 11 |   5 1
+     |     ^
+  12 | }
+  13 |
+  14 | export async function getImagesByCategory(category?: string) {
+
+Expected ';', '}' or <eof>
+
+Import trace:
+  Server Component:
+    ./apps/user-app/lib/getImages.ts
+    ./apps/user-app/components/allPhotos.tsx
+    ./apps/user-app/app/page.tsx
+[00:17:16.234] Browser ERROR   ./apps/user-app/lib/getImages.ts:11:5
+Parsing ecmascript source code failed
+   9 |   // count - 100
+  10 |   // 5
+> 11 |   5 15
+     |     ^^
+  12 | }
+  13 |
+  14 | export async function getImagesByCategory(category?: string) {
+
+Expected ';', '}' or <eof>
+
+Import trace:
+  Server Component:
+    ./apps/user-app/lib/getImages.ts
+    ./apps/user-app/components/allPhotos.tsx
+    ./apps/user-app/app/page.tsx
+[00:17:16.235] Browser ERROR   ./apps/user-app/lib/getImages.ts:11:5
+Parsing ecmascript source code failed
+   9 |   // count - 100
+  10 |   // 5
+> 11 |   5 15 
+     |     ^^
+  12 | }
+  13 |
+  14 | export async function getImagesByCategory(category?: string) {
+
+Expected ';', '}' or <eof>
+
+Import trace:
+  Server Component:
+    ./apps/user-app/lib/getImages.ts
+    ./apps/user-app/components/allPhotos.tsx
+    ./apps/user-app/app/page.tsx
+[00:17:16.235] Browser ERROR   ./apps/user-app/lib/getImages.ts:11:5
+Parsing ecmascript source code failed
+   9 |   // count - 100
+  10 |   // 5
+> 11 |   5 15 2
+     |     ^^
+  12 | }
+  13 |
+  14 | export async function getImagesByCategory(category?: string) {
+
+Expected ';', '}' or <eof>
+
+Import trace:
+  Server Component:
+    ./apps/user-app/lib/getImages.ts
+    ./apps/user-app/components/allPhotos.tsx
+    ./apps/user-app/app/page.tsx
+[00:17:17.231] Browser ERROR   ./apps/user-app/lib/getImages.ts:11:5
+Parsing ecmascript source code failed
+   9 |   // count - 100
+  10 |   // 5
+> 11 |   5 15 25
+     |     ^^
+  12 | }
+  13 |
+  14 | export async function getImagesByCategory(category?: string) {
+
+Expected ';', '}' or <eof>
+
+Import trace:
+  Server Component:
+    ./apps/user-app/lib/getImages.ts
+    ./apps/user-app/components/allPhotos.tsx
+    ./apps/user-app/app/page.tsx
+[00:17:17.231] Browser ERROR   ./apps/user-app/lib/getImages.ts:11:5
+Parsing ecmascript source code failed
+   9 |   // count - 100
+  10 |   // 5
+> 11 |   5 15 25 
+     |     ^^
+  12 | }
+  13 |
+  14 | export async function getImagesByCategory(category?: string) {
+
+Expected ';', '}' or <eof>
+
+Import trace:
+  Server Component:
+    ./apps/user-app/lib/getImages.ts
+    ./apps/user-app/components/allPhotos.tsx
+    ./apps/user-app/app/page.tsx
+[00:17:18.324] Server  LOG     prisma:query "BEGIN"
+[00:17:18.324] Server  LOG     prisma:query "BEGIN"
+[00:17:18.476] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:18.482] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:18.784] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:18.796] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:18.938] Server  LOG     prisma:query "COMMIT"
+[00:17:18.957] Server  LOG     prisma:query "COMMIT"
+[00:17:20.160] Server  LOG     prisma:query "BEGIN"
+[00:17:20.166] Server  LOG     prisma:query "BEGIN"
+[00:17:20.325] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:20.333] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:17:20.660] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:20.675] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:17:20.818] Server  LOG     prisma:query "COMMIT"
+[00:17:20.835] Server  LOG     prisma:query "COMMIT"
+[00:18:33.692] Server  LOG     prisma:query "SELECT 1"
+[00:18:33.692] Server  LOG     prisma:query "SELECT 1"
+[00:18:33.839] Server  LOG     prisma:query "BEGIN"
+[00:18:33.847] Server  LOG     prisma:query "BEGIN"
+[00:18:33.998] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:18:33.998] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:18:34.315] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:18:34.340] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:18:34.464] Server  LOG     prisma:query "COMMIT"
+[00:18:34.495] Server  LOG     prisma:query "COMMIT"
+[00:21:05.448] Server  LOG     prisma:query "SELECT 1"
+[00:21:05.475] Server  LOG     prisma:query "SELECT 1"
+[00:21:05.626] Server  LOG     prisma:query "BEGIN"
+[00:21:05.626] Server  LOG     prisma:query "BEGIN"
+[00:21:05.795] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:21:05.796] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:21:06.105] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:21:06.120] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:21:06.265] Server  LOG     prisma:query "COMMIT"
+[00:21:06.285] Server  LOG     prisma:query "COMMIT"
+[00:22:35.542] Server  LOG     prisma:query "BEGIN"
+[00:22:35.709] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:22:36.026] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:22:36.192] Server  LOG     prisma:query "COMMIT"
+[00:22:36.454] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:27.859] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:23:53.879] Server  LOG     prisma:query "SELECT 1"
+[00:23:54.046] Server  LOG     prisma:query "BEGIN"
+[00:23:54.206] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:23:54.613] Server  LOG     prisma:query "INSERT INTO \"public\".\"Image\" (\"id\",\"imagePath\",\"category\",\"prompt\",\"like\",\"createdAt\") VALUES ($1,$2,$3,$4,$5,$6) RETURNING \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\""
+[00:23:54.799] Server  LOG     prisma:query "COMMIT"
+[00:24:16.358] Server  LOG     prisma:query "SELECT 1"
+[00:24:16.526] Server  LOG     prisma:query "BEGIN"
+[00:24:16.694] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:24:17.028] Server  LOG     prisma:query "INSERT INTO \"public\".\"Image\" (\"id\",\"imagePath\",\"category\",\"prompt\",\"like\",\"createdAt\") VALUES ($1,$2,$3,$4,$5,$6) RETURNING \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\""
+[00:24:17.187] Server  LOG     prisma:query "COMMIT"
+[00:24:19.301] Server  LOG     prisma:query "BEGIN"
+[00:24:19.458] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:24:19.777] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE 1=1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $1"
+[00:24:19.940] Server  LOG     prisma:query "COMMIT"
+[00:24:20.189] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:52:29.806] Server  LOG     prisma:query "BEGIN"
+[00:52:30.019] Server  LOG     prisma:query "DEALLOCATE ALL"
+[00:52:30.414] Server  LOG     prisma:query "SELECT \"public\".\"Image\".\"id\", \"public\".\"Image\".\"imagePath\", \"public\".\"Image\".\"category\", \"public\".\"Image\".\"prompt\", \"public\".\"Image\".\"like\", \"public\".\"Image\".\"createdAt\" FROM \"public\".\"Image\" WHERE \"public\".\"Image\".\"category\" = $1 ORDER BY \"public\".\"Image\".\"createdAt\" DESC OFFSET $2"
+[00:52:30.587] Server  LOG     prisma:query "COMMIT"
