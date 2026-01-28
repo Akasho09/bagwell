@@ -8,6 +8,13 @@ export async function getImages() {
   });
 }
 
+export async function getImageById(id: string) {
+  const image = await prisma.image.findUnique({
+    where: { id },
+  });
+  return image;
+}
+
 export async function getImagesByCategory(category?: string) {
   return prisma.image.findMany({
     where: category ? { category } : {},
@@ -45,4 +52,18 @@ export async function getRandomImagesByCategory(
     ORDER BY RANDOM()
     LIMIT ${limit};
   `;
+}
+
+
+// NEW: Get related images (same category, exclude current)
+export async function getRelatedImages(category: string, excludeId: string, limit: number = 6) {
+  const images = await prisma.image.findMany({
+    where: {
+      category,
+      id: { not: excludeId },
+    },
+    take: limit,
+    orderBy: { createdAt: "desc" },
+  });
+  return images;
 }

@@ -1,61 +1,27 @@
-import { LeftBar } from "../components/leftBar";
-import { PhotoCompo } from "../components/photo";
-import { Button } from "@repo/ui/button";
-import { TopBar } from "../components/topBar";
-import { Interact } from "../components/interact";
-import { Photos } from "../components/allPhotos";
-import CategoryFilter from "../components/CategoryFilter";
+import { CategoryFilter } from "../components/CategoryFilter";
+import { MasonryGrid } from "../components/Maso";
+import { TopBar } from "../components/topBar2";
+import { getImages } from "../lib/getImages";
 
-export default function Home() {
+export default async function Home() {
+  const images = await getImages();
+  
   return (
-    <div className="flex h-screen w-screen overflow-hidden">
-
-      {/* LEFT SIDEBAR */}
-      <aside className="w-[88px] shrink-0 border-r">
-        <LeftBar />
-      </aside>
-
-      {/* MAIN CONTENT */}
+    <div className="flex h-screen w-screen overflow-hidden bg-gradient-to-br from-slate-50 via-white to-rose-50/30">
+      
       <main className="flex flex-col flex-1 overflow-hidden">
-
-        {/* TOP BAR */}
-        <header className="h-16 shrink-0 border-b">
+        {/* Top Navigation */}
+        <header className="shrink-0 border-b border-slate-200/60 bg-white/95 backdrop-blur-xl shadow-sm sticky top-0 z-50">
           <TopBar />
+          {/* Category Filter Bar */}
+          <div className="border-t border-slate-200/40 px-6 py-3">
+            <CategoryFilter />
+          </div>
         </header>
-          <CategoryFilter/>
 
-        {/* BODY */}
-        <div className="flex flex-1 overflow-hidden">
-
-          {/* CENTER AREA */}
-          <section className="flex flex-col flex-1 items-center overflow-hidden">
-
-            {/* INTERACTION BAR */}
-            {/* <div className="w-full shrink-0 border-b">
-              <Interact />
-            </div> */}
-
-            {/* MAIN PHOTO */}
-            <div className="flex-1 flex items-center justify-center overflow-auto">
-             <Photos/>
-            </div>
-
-          </section>
-
-          {/* RIGHT SIDEBAR */}
-          <aside className="w-[260px] shrink-0 border-l p-2 flex flex-col gap-2 overflow-y-auto">
-            <PhotoCompo />
-            <PhotoCompo />
-            <PhotoCompo />
-            <PhotoCompo />
-            <PhotoCompo />
-            <PhotoCompo />
-
-            <Button appName="Right" className="mt-2">
-              More Images
-            </Button>
-          </aside>
-
+        {/* Scrollable Content */}
+        <div className="flex-1 overflow-y-auto overflow-x-hidden">
+          <MasonryGrid images={images} />
         </div>
       </main>
     </div>

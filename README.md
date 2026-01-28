@@ -1,135 +1,74 @@
-# Turborepo starter
+1. Image Grid/Masonry Layout
 
-This Turborepo starter is maintained by the Turborepo core team.
+Masonry/waterfall layout for images
+Responsive columns (2-6 columns based on screen size)
+Infinite scroll or pagination
+Image lazy loading
 
-## Using this example
+2. Image Card Component
 
-Run the following command:
+Hover overlay with save/share buttons
+Image metadata (title, user, saves)
+Quick actions (save, hide, report)
+Click to open modal/detail view
 
-```sh
-npx create-turbo@latest
-```
+3. Image Detail Modal/Page
 
-## What's inside?
+Full image view
+Title, description, tags
+Author information
+Comments section
+Related images
+Save to board functionality
+Share options
 
-This Turborepo includes the following packages/apps:
-a
-### Apps and Packages
+4. Board Components
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+Board creation modal
+Board selector (when saving pins)
+Board grid view
+Board detail page
+Board settings/edit
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+5. User Profile
 
-### Utilities
+Profile header (avatar, bio, stats)
+Tabs (Created, Saved, Boards)
+User's pins grid
+Follow/Following functionality
+Edit profile modal
 
-This Turborepo has some additional tools already setup for you:
+6. Category/Filter System
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+Category chips/pills
+Filter dropdown (by color, orientation, etc.)
+Sort options (trending, new, popular)
+Active filter indicators
 
-### Build
+7. Navigation Components
 
-To build all apps and packages, run the following command:
+LeftBar/Sidebar: Main navigation menu
+Mobile bottom navigation
+Breadcrumbs (for nested views)
 
-```
-cd my-turborepo
+8. Upload/Create Components
 
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
+Image upload modal
+Drag & drop zone
+URL import
+Add title, description, board selection
+Tag input
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
+9. Search Components
 
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+Search results page
+Search filters
+Visual search (search by image)
+Search history
 
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
+10. Social Components
 
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+Comments list & input
+Like/reaction buttons
+Share modal (social platforms)
+User mentions/tagging
