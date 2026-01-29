@@ -2,7 +2,6 @@
 import { PinDetailClient } from "./PinDetailClient";
 import { notFound } from "next/navigation";
 import { getImageById , getRelatedImages , getImages } from "../../../lib/getImages";
-import { getImageUrl } from "../../../lib/urls";
 
 export default async function PinDetailPage({ 
   params 
