@@ -24,12 +24,12 @@ export default async function PinDetailPage({
         ...image,
         imagePath: image.imagePath,
       }}
-      relatedImages={relatedImages.map(img => ({
+      relatedImages={relatedImages.map((img : any)=> ({
         id: img.id,
         imagePath: img.imagePath,
         prompt: img.prompt,
       }))}
-      allImages={allImages.map(img => ({ id: img.id }))}
+      allImages={allImages.map((img : any) => ({ id: img.id }))}
     />
   );
 }
