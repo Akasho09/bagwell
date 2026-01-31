@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 interface Category {
   id: string;
   name: string;
-  color?: string;
+  color: string;
 }
 
 const categories: Category[] = [
@@ -52,23 +52,28 @@ export function CategoryFilter() {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
 
-  const handleCategoryClick = (categoryId: string) => {
+  const handleCategoryClick = useCallback((categoryId: string) => {
+    const params = new URLSearchParams(searchParams);
+    
     if (categoryId === "all") {
-      router.push("/");
+      params.delete("category");
     } else {
-      router.push(`/?category=${categoryId}`);
+      params.set("category", categoryId);
     }
-  };
+    
+    const queryString = params.toString();
+    router.push(queryString ? `/?${queryString}` : "/");
+  }, [router, searchParams]);
 
-  const checkScroll = () => {
+  const checkScroll = useCallback(() => {
     if (scrollContainerRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
-      setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+      setCanScrollLeft(scrollLeft > 5);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 5);
     }
-  };
+  }, []);
 
-  const scroll = (direction: "left" | "right") => {
+  const scroll = useCallback((direction: "left" | "right") => {
     if (scrollContainerRef.current) {
       const scrollAmount = 300;
       scrollContainerRef.current.scrollBy({
@@ -76,94 +81,118 @@ export function CategoryFilter() {
         behavior: "smooth",
       });
     }
-  };
+  }, []);
 
   useEffect(() => {
     checkScroll();
     const container = scrollContainerRef.current;
+    
     if (container) {
-      container.addEventListener("scroll", checkScroll);
-      window.addEventListener("resize", checkScroll);
+      const resizeObserver = new ResizeObserver(checkScroll);
+      resizeObserver.observe(container);
+      
+      container.addEventListener("scroll", checkScroll, { passive: true });
+      
       return () => {
+        resizeObserver.disconnect();
         container.removeEventListener("scroll", checkScroll);
-        window.removeEventListener("resize", checkScroll);
       };
     }
-  }, []);
+  }, [checkScroll]);
+
+  const activeCategory = categories.find(c => c.id === currentCategory);
 
   return (
-    <div className="relative w-full">
-      {/* Scroll Container */}
-      <div className="relative flex items-center gap-2">
-        {/* Left Scroll Button */}
-        {canScrollLeft && (
-          <button
-            onClick={() => scroll("left")}
-            className="absolute left-0 z-10 p-2 bg-white/95 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 border border-slate-200"
+    <div className="relative w-full bg-white border-b border-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        {/* Scroll Container */}
+        <div className="relative flex items-center">
+          {/* Left Gradient Fade */}
+          {canScrollLeft && (
+            <div className="absolute left-0 z-10 h-full w-16 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+          )}
+
+          {/* Left Scroll Button */}
+          {canScrollLeft && (
+            <button
+              onClick={() => scroll("left")}
+              className="absolute left-2 z-20 p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-200 hover:scale-110 border border-slate-200"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft size={20} className="text-slate-700" />
+            </button>
+          )}
+
+          {/* Categories Scroll Container */}
+          <div
+            ref={scrollContainerRef}
+            className="flex items-center gap-2 overflow-x-auto scrollbar-hide scroll-smooth px-2"
+            role="tablist"
+            aria-label="Category filter"
           >
-            <ChevronLeft size={20} className="text-slate-700" />
-          </button>
-        )}
+            {categories.map((category) => {
+              const isActive = currentCategory === category.id;
+              const colors = colorVariants[category.color];
 
-        {/* Categories Scroll Container */}
-        <div
-          ref={scrollContainerRef}
-          className="flex items-center gap-2 overflow-x-auto scrollbar-hide scroll-smooth px-12"
-        >
-          {categories.map((category) => {
-            const isActive = currentCategory === category.id;
-            const colors = colorVariants[category.color || "slate"];
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => handleCategoryClick(category.id)}
+                  role="tab"
+                  aria-selected={isActive}
+                  className={`
+                    relative px-5 py-2.5 rounded-full font-medium text-sm whitespace-nowrap
+                    transition-all duration-200 hover:scale-105 shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2
+                    ${isActive 
+                      ? `${colors?.active} shadow-md` 
+                      : `${colors?.bg} ${colors?.text} ${colors?.hover}`
+                    }
+                  `}
+                >
+                  {category.name}
+                </button>
+              );
+            })}
+          </div>
 
-            return (
-              <button
-                key={category.id}
-                onClick={() => handleCategoryClick(category.id)}
-                className={`
-                  relative px-5 py-2.5 rounded-full font-bold text-sm whitespace-nowrap
-                  transition-all duration-300 transform hover:scale-105 shadow-sm
-                  ${isActive 
-                    ? `${colors?.active} shadow-lg ring-2 ring-offset-2 ring-current` 
-                    : `${colors?.bg} ${colors?.text} ${colors?.hover}`
-                  }
-                `}
-              >
-                {category.name}
-              </button>
-            );
-          })}
+          {/* Right Gradient Fade */}
+          {canScrollRight && (
+            <div className="absolute right-0 z-10 h-full w-16 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+          )}
+
+          {/* Right Scroll Button */}
+          {canScrollRight && (
+            <button
+              onClick={() => scroll("right")}
+              className="absolute right-2 z-20 p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-200 hover:scale-110 border border-slate-200"
+              aria-label="Scroll right"
+            >
+              <ChevronRight size={20} className="text-slate-700" />
+            </button>
+          )}
         </div>
 
-        {/* Right Scroll Button */}
-        {canScrollRight && (
-          <button
-            onClick={() => scroll("right")}
-            className="absolute right-0 z-10 p-2 bg-white/95 backdrop-blur-sm rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110 border border-slate-200"
-          >
-            <ChevronRight size={20} className="text-slate-700" />
-          </button>
+        {/* Active Filter Badge */}
+        {currentCategory !== "all" && activeCategory && (
+          <div className="mt-3 flex items-center gap-2 animate-in fade-in slide-in-from-top-1 duration-300">
+            <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">
+              Active Filter:
+            </span>
+            <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-rose-500 via-pink-500 to-orange-500 text-white rounded-full text-sm font-semibold shadow-lg">
+              <span>{activeCategory.name}</span>
+              <button
+                onClick={() => handleCategoryClick("all")}
+                className="ml-1 hover:bg-white/20 rounded-full p-1 transition-colors focus:outline-none focus:ring-2 focus:ring-white/50"
+                aria-label="Clear category filter"
+              >
+                <X size={14} />
+              </button>
+            </div>
+          </div>
         )}
       </div>
 
-      {/* Active Filter Badge */}
-      {currentCategory !== "all" && (
-        <div className="mt-4 flex items-center gap-2 px-12">
-          <span className="text-xs text-slate-500 font-medium uppercase tracking-wide">Active:</span>
-          <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-rose-500 via-pink-500 to-orange-500 text-white rounded-full text-sm font-bold shadow-lg shadow-rose-500/30">
-            <span className="capitalize">
-              {categories.find(c => c.id === currentCategory)?.name}
-            </span>
-            <button
-              onClick={() => handleCategoryClick("all")}
-              className="ml-1 hover:bg-white/20 rounded-full p-1 transition-colors"
-              aria-label="Clear filter"
-            >
-              <X size={14} />
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Hide scrollbar globally for this component */}
+      {/* Scrollbar Hide */}
       <style jsx global>{`
         .scrollbar-hide::-webkit-scrollbar {
           display: none;

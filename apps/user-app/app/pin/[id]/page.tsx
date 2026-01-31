@@ -1,7 +1,6 @@
-// app/pin/[id]/page.tsx
 import { PinDetailClient } from "./PinDetailClient";
 import { notFound } from "next/navigation";
-import { getImageById , getRelatedImages , getImages } from "../../../lib/getImages";
+import { getImageById, getRelatedImages } from "../../../lib/getImages";
 
 export default async function PinDetailPage({ 
   params 
@@ -15,21 +14,12 @@ export default async function PinDetailPage({
     notFound();
   }
 
-  const relatedImages = await getRelatedImages(image.category, image.id, 6);
-  const allImages = await getImages();
+  const relatedImages = await getRelatedImages(image.category, image.id, 10);
 
   return (
     <PinDetailClient
-      image={{
-        ...image,
-        imagePath: image.imagePath,
-      }}
-      relatedImages={relatedImages.map((img : any)=> ({
-        id: img.id,
-        imagePath: img.imagePath,
-        prompt: img.prompt,
-      }))}
-      allImages={allImages.map((img : any) => ({ id: img.id }))}
+      image={image}
+      relatedImages={relatedImages}
     />
   );
 }
@@ -51,16 +41,23 @@ export async function generateMetadata({
 
   return {
     title: image.prompt || "Pin Detail",
-    description: `View this ${image.category} pin`,
+    description: `${image.category} • View and explore similar pins`,
     openGraph: {
       title: image.prompt || "Pin Detail",
-      description: `View this ${image.category} pin`,
-      images: [image.imagePath],
+      description: `${image.category} • View and explore similar pins`,
+      images: [
+        {
+          url: image.imagePath,
+          width: 1200,
+          height: 630,
+          alt: image.prompt || "Pin image",
+        }
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: image.prompt || "Pin Detail",
-      description: `View this ${image.category} pin`,
+      description: `${image.category} • View and explore similar pins`,
       images: [image.imagePath],
     },
   };
