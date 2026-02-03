@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import { X, Upload as UploadIcon, Loader2, Check } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -8,283 +8,259 @@ import Link from "next/link";
 import { uploadImage } from "../../lib/upload";
 import { createImage } from "../../lib/saveInDb";
 
+/* ---------------- ENUM SAFE OPTIONS ---------------- */
+
 const categories = [
-  { value: "nature", label: "Nature" },
-  { value: "interior", label: "Interior Design" },
-  { value: "fashion", label: "Fashion" },
-  { value: "food", label: "Food & Drink" },
-  { value: "travel", label: "Travel" },
-  { value: "art", label: "Art" },
-  { value: "photography", label: "Photography" },
-  { value: "architecture", label: "Architecture" },
-  { value: "technology", label: "Technology" },
-  { value: "fitness", label: "Fitness" },
-  { value: "beauty", label: "Beauty" },
-  { value: "diy", label: "DIY & Crafts" },
-  { value: "quotes", label: "Quotes" },
+  { value: "NATURE", label: "Nature" },
+  { value: "TECH", label: "Technology" },
+  { value: "AESTHETIC", label: "Aesthetic" },
+  { value: "SPORTS", label: "Sports" },
 ];
+
+const genders = [
+  { value: "Male", label: "Male" },
+  { value: "Female", label: "Female" },
+  { value: "Unisex", label: "Unisex" },
+];
+
+const MAX_FILE_SIZE = 10 * 1024 * 1024;
 
 export default function Upload() {
   const router = useRouter();
-  const [prompt, setPrompt] = useState("");
-  const [category, setCategory] = useState("");
-  const [imageFile, setImageFile] = useState<File | null>(null);
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
-  const [isUploading, setIsUploading] = useState(false);
-  const [uploadSuccess, setUploadSuccess] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      if (!file.type.startsWith("image/")) {
-        alert("Please select an image file");
-        return;
-      }
-      
-      if (file.size > 10 * 1024 * 1024) {
-        alert("File size must be less than 10MB");
-        return;
-      }
+  const [prompt, setPrompt] = useState("");
+  const [category, setCategory] = useState("");
+  const [gender, setGender] = useState<"Male" | "Female" | "Unisex">("Male");
 
-      setImageFile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+
+  const [status, setStatus] = useState<
+    "idle" | "uploading" | "success"
+  >("idle");
+
+  /* ---------------- CLEAN PREVIEW ---------------- */
+
+  useEffect(() => {
+    return () => {
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+    };
+  }, [previewUrl]);
+
+  /* ---------------- FILE VALIDATION ---------------- */
+
+  const validateFile = (file: File) => {
+    if (!file.type.startsWith("image/")) {
+      alert("Only image files allowed");
+      return false;
     }
-  };
 
-  const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    const file = e.dataTransfer.files?.[0];
-    if (file && file.type.startsWith("image/")) {
-      setImageFile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
+    if (file.size > MAX_FILE_SIZE) {
+      alert("File must be under 10MB");
+      return false;
     }
+
+    return true;
   };
 
-  const handleDragOver = (e: React.DragEvent) => {
-    e.preventDefault();
-  };
+  const handleFile = useCallback((file: File) => {
+    if (!validateFile(file)) return;
+
+    setImageFile(file);
+    setPreviewUrl(URL.createObjectURL(file));
+  }, []);
 
   const handleSubmit = async () => {
-    if (!imageFile) {
-      alert("Please upload an image");
-      return;
-    }
-    if (!prompt.trim()) {
-      alert("Please add a description");
-      return;
-    }
-    if (!category) {
-      alert("Please select a category");
+    if (!imageFile || !prompt.trim() || !category || !gender) {
+      alert("Please fill all required fields");
       return;
     }
 
-    setIsUploading(true);
     try {
+      setStatus("uploading");
+
       const imagePath = await uploadImage(imageFile, category);
+
       await createImage({
         category,
         prompt,
         imagePath,
+        gender, // ⭐ Added gender
       });
 
-      setUploadSuccess(true);
-      
+      setStatus("success");
+
       setTimeout(() => {
         router.push("/");
         router.refresh();
-      }, 1500);
-
-    } catch (error) {
-      console.error("Upload failed:", error);
-      alert("Failed to create pin. Please try again.");
-    } finally {
-      setIsUploading(false);
+      }, 1200);
+    } catch (err) {
+      console.error(err);
+      alert("Upload failed");
+      setStatus("idle");
     }
   };
 
+  /* ---------------- RESET ---------------- */
+
+  const resetImage = () => {
+    setImageFile(null);
+    setPreviewUrl(null);
+  };
+
+  /* ---------------- UI ---------------- */
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 py-8 sm:py-12 px-4">
+    <div className="min-h-screen py-10 px-4 ">
       <div className="max-w-5xl mx-auto">
-        
-        {/* Header */}
-        <div className="flex items-center justify-between mb-6 sm:mb-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-slate-900">Create New Pin</h1>
-          <Link
-            href="/"
-            className="p-2 rounded-full hover:bg-white transition-colors"
-            aria-label="Close"
-          >
-            <X size={24} />
+
+        {/* HEADER */}
+        <div className="flex justify-between mb-8">
+          <h1 className="text-3xl font-bold">Create Pin</h1>
+          <Link href="/" className="p-2 hover:bg-white rounded-full">
+            <X />
           </Link>
         </div>
 
-        {/* Main Content */}
-        <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-8">
-          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-            
-            {/* Left: Image Upload */}
-            <div className="space-y-4">
-              <div 
-                className="aspect-[3/4] bg-slate-50 rounded-xl border-2 border-dashed border-slate-300 flex items-center justify-center overflow-hidden relative"
-                onDrop={handleDrop}
-                onDragOver={handleDragOver}
-              >
-                {imagePreview ? (
-                  <>
-                    <Image
-                      src={imagePreview}
-                      alt="Preview"
-                      fill
-                      className="object-cover"
-                    />
-                    <button
-                      onClick={() => {
-                        setImageFile(null);
-                        setImagePreview(null);
-                      }}
-                      disabled={isUploading}
-                      className="absolute top-4 right-4 p-2 bg-white/90 rounded-full hover:bg-white shadow-lg transition-all hover:scale-110 disabled:opacity-50"
-                    >
-                      <X size={20} />
-                    </button>
-                  </>
-                ) : (
-                  <div className="text-center p-6 sm:p-8">
-                    <UploadIcon className="mx-auto mb-4 text-slate-400" size={48} />
-                    <p className="text-slate-600 font-medium mb-2">
-                      Upload an image
-                    </p>
-                    <p className="text-sm text-slate-400 mb-4">
-                      Drag & drop or click to browse
-                    </p>
-                    <p className="text-xs text-slate-400 mb-4">
-                      JPG, PNG or WEBP (Max 10MB)
-                    </p>
-                    <button
-                      onClick={() => fileInputRef.current?.click()}
-                      className="px-6 py-3 bg-slate-900 text-white rounded-full font-semibold hover:bg-slate-800 transition-colors"
-                    >
-                      Choose File
-                    </button>
-                    <input
-                      ref={fileInputRef}
-                      type="file"
-                      accept="image/*"
-                      onChange={handleFileChange}
-                      className="hidden"
-                    />
-                  </div>
-                )}
-              </div>
+        <div className=" rounded-2xl shadow-xl p-8 grid md:grid-cols-2 gap-8">
 
-              {imageFile && (
-                <div className="p-4 bg-green-50 rounded-xl border border-green-200">
-                  <div className="flex items-center gap-2 text-green-700">
-                    <Check size={20} />
-                    <div className="flex-1 min-w-0">
-                      <p className="font-semibold text-sm truncate">{imageFile.name}</p>
-                      <p className="text-xs text-green-600">
-                        {(imageFile.size / 1024 / 1024).toFixed(2)} MB
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            {/* Right: Details */}
-            <div className="space-y-6">
-              
-              {/* Description */}
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
-                  Description *
-                </label>
-                <textarea
-                  value={prompt}
-                  onChange={(e) => setPrompt(e.target.value)}
-                  placeholder="Describe your pin..."
-                  rows={5}
-                  disabled={isUploading}
-                  className="w-full px-4 py-3 bg-slate-50 border-2 border-transparent rounded-xl focus:border-rose-500 focus:bg-white outline-none transition-all resize-none text-sm disabled:opacity-50"
+          {/* LEFT IMAGE */}
+          <div
+            onDrop={(e) => {
+              e.preventDefault();
+              const file = e.dataTransfer.files?.[0];
+              if (file) handleFile(file);
+            }}
+            onDragOver={(e) => e.preventDefault()}
+            className="relative aspect-[3/4] border-2 border-dashed rounded-xl flex items-center justify-center"
+          >
+            {previewUrl ? (
+              <>
+                <Image
+                  src={previewUrl}
+                  alt="preview"
+                  fill
+                  className="object-cover"
                 />
-                <p className="text-xs text-slate-500 mt-1">
-                  {prompt.length} characters
-                </p>
-              </div>
 
-              {/* Category */}
-              <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
-                  Category *
-                </label>
-                <select
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                  disabled={isUploading}
-                  className="w-full px-4 py-3 bg-slate-50 border-2 border-transparent rounded-xl focus:border-rose-500 focus:bg-white outline-none transition-all text-sm disabled:opacity-50"
+                <button
+                  onClick={resetImage}
+                  disabled={status === "uploading"}
+                  className="absolute top-3 right-3 p-2 rounded-full shadow"
                 >
-                  <option value="">Select a category</option>
-                  {categories.map((cat) => (
-                    <option key={cat.value} value={cat.value}>
-                      {cat.label}
-                    </option>
-                  ))}
-                </select>
+                  <X size={18} />
+                </button>
+              </>
+            ) : (
+              <div className="text-center">
+                <UploadIcon className="mx-auto mb-3 text-gray-400" size={48} />
+                <p className="font-medium">Upload Image</p>
+
+                <button
+                  onClick={() => fileInputRef.current?.click()}
+                  className="mt-4 px-6 py-2 bg-black text-white rounded-full"
+                >
+                  Choose File
+                </button>
+
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  accept="image/*"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) handleFile(file);
+                  }}
+                  hidden
+                />
               </div>
+            )}
+          </div>
 
-              {/* Tips */}
-              <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
-                <h4 className="font-semibold text-sm text-blue-900 mb-2">
-                  💡 Tips for better pins
-                </h4>
-                <ul className="text-xs text-blue-800 space-y-1">
-                  <li>• Use clear, high-quality images</li>
-                  <li>• Write descriptive, engaging descriptions</li>
-                  <li>• Choose the most relevant category</li>
-                  <li>• Be creative and unique!</li>
-                </ul>
-              </div>
+          {/* RIGHT FORM */}
+          <div className="space-y-6">
 
-              {uploadSuccess && (
-                <div className="p-4 bg-green-50 rounded-xl border border-green-200 animate-in fade-in slide-in-from-top-2">
-                  <div className="flex items-center gap-2 text-green-700">
-                    <Check size={20} />
-                    <p className="font-semibold text-sm">Pin created successfully!</p>
-                  </div>
-                </div>
-              )}
-
-              {/* Submit Button */}
-              <button
-                onClick={handleSubmit}
-                disabled={isUploading || !imageFile || !prompt.trim() || !category || uploadSuccess}
-                className="w-full px-6 py-4 bg-rose-500 text-white rounded-xl font-semibold hover:bg-rose-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-lg shadow-lg shadow-rose-500/30"
-              >
-                {isUploading ? (
-                  <>
-                    <Loader2 className="animate-spin" size={24} />
-                    Creating Pin...
-                  </>
-                ) : uploadSuccess ? (
-                  <>
-                    <Check size={24} />
-                    Created!
-                  </>
-                ) : (
-                  "Create Pin"
-                )}
-              </button>
+            {/* DESCRIPTION */}
+            <div>
+              <label className="text-sm font-semibold">Description *</label>
+              <textarea
+                rows={4}
+                value={prompt}
+                onChange={(e) => setPrompt(e.target.value)}
+                className="w-full mt-2 p-3 bg-slate-50 rounded-xl"
+              />
             </div>
+
+            {/* CATEGORY */}
+            <div>
+              <label className="text-sm font-semibold">Category *</label>
+              <select
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                className="w-full mt-2 p-3 bg-slate-50 rounded-xl"
+              >
+                <option value="">Select Category</option>
+                {categories.map((cat) => (
+                  <option key={cat.value} value={cat.value}>
+                    {cat.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* ⭐ NEW GENDER FIELD */}
+            <div>
+              <label className="text-sm font-semibold">Gender *</label>
+              <select
+                value={gender}
+                onChange={(e) => setGender(e.target.value as "Male" | "Female" | "Unisex")}
+                className="w-full mt-2 p-3 bg-slate-50 rounded-xl"
+              >
+                <option value="">Select Gender</option>
+                {genders.map((g) => (
+                  <option key={g.value} value={g.value}>
+                    {g.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* SUCCESS */}
+            {status === "success" && (
+              <div className="bg-green-50 border p-3 rounded-xl flex gap-2 items-center">
+                <Check />
+                Pin Created!
+              </div>
+            )}
+
+            {/* SUBMIT */}
+            <button
+              onClick={handleSubmit}
+              disabled={
+                status === "uploading" ||
+                !imageFile ||
+                !prompt ||
+                !category ||
+                !gender
+              }
+              className="w-full py-4 bg-rose-500 text-white rounded-xl font-semibold flex justify-center gap-2 disabled:opacity-50"
+            >
+              {status === "uploading" ? (
+                <>
+                  <Loader2 className="animate-spin" />
+                  Uploading...
+                </>
+              ) : status === "success" ? (
+                <>
+                  <Check />
+                  Created
+                </>
+              ) : (
+                "Create Pin"
+              )}
+            </button>
+
           </div>
         </div>
       </div>

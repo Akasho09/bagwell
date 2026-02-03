@@ -14,7 +14,11 @@ export default async function PinDetailPage({
     notFound();
   }
 
-  const relatedImages = await getRelatedImages(image.category, image.id, 10);
+  const relatedImages = await getRelatedImages({
+    id: image.id,
+    category: image.category,
+    gender: image.gender,
+  });
 
   return (
     <PinDetailClient

@@ -1,1 +1,33 @@
 @import "tailwindcss";
+
+:root {
+  --bg-color: #d59797;
+  --text-color: #000000;
+  --border-color: #000000;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+body, .theme * {
+  color: var(--text-color);
+  border-color: var(--border-color);
+  transition: background-color 0.5s, color 0.5s, border-color 0.5s;
+}
+
+.theme-him {
+  --bg-color: #95b39d ;
+  --text-color: #000405;
+  --border-color: #4fa3b1;
+  --ball-bg: #005f73;
+  --accent-color: #0a9396;
+}
+
+
+.theme-her {
+  --bg-color: #f1aac8;
+  --text-color: #d673d2;
+  --border-color: #b26b7b;
+  --ball-bg: #d45a78;
+}

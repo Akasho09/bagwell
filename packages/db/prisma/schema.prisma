@@ -5,8 +5,8 @@ generator client {
 
 datasource db {
   provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  // url       = env("DATABASE_URL")
+  // directUrl = env("DIRECT_URL")
   schemas   = ["public"]
 }
 
@@ -23,6 +23,7 @@ model Image {
   id          String   @id @default(uuid())
   imagePath    String
   category    String   // or enum
+  gender Gender @default(Male)
   prompt String?
   description String?
   like Int @default(0)
@@ -39,7 +40,13 @@ enum Category {
   SPORTS
   @@schema("public")
 }
-
+ 
+enum Gender {
+  Male 
+  Female
+  Unisex
+  @@schema("public")
+}
 
 // TRACK IP ADDRESS OF DEVICE AND FREE 3 COPY PROMPTS 
 // 
